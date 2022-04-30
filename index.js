@@ -45,6 +45,23 @@ async function run() {
       res.send(item);
     });
 
+    //updateQuantity
+
+    app.put("/inventory/:id", async (req, res) => {
+      const id = req.params.id;
+      const newItem = req.body;
+
+      const query = { _id: ObjectId(id) };
+      updatedQuantity = { $set: { quantity: newItem.quantity } };
+      const options = { upsert: true };
+      const result = await itemsCollection.updateOne(
+        query,
+        updatedQuantity,
+        options
+      );
+      res.send(result);
+    });
+
     console.log("connected to mongoDB");
   } finally {
   }
