@@ -62,6 +62,15 @@ async function run() {
       res.send(result);
     });
 
+    //deleteItem
+
+    app.delete("/inventory/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: ObjectId(id) };
+      const result = await itemsCollection.deleteOne(query);
+      res.send(result);
+    });
+
     console.log("connected to mongoDB");
   } finally {
   }
