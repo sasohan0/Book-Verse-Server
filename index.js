@@ -82,7 +82,7 @@ async function run() {
 
     //userItems
 
-    app.get("/inventory/userItems/:email", async (req, res) => {
+    app.get("/userItems/:email", async (req, res) => {
       const email = req.params.email;
 
       const query = { user: email };
