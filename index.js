@@ -81,7 +81,7 @@ async function run() {
 
     //userItems
 
-    app.get("/userItems/:email", async (req, res) => {
+    app.get("/inventory/:email", async (req, res) => {
       const email = req.params.email;
 
       const query = { user: email };
