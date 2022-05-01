@@ -29,6 +29,7 @@ async function run() {
   try {
     await client.connect();
     const itemsCollection = client.db("book-verse").collection("items");
+
     app.get("/inventory", async (req, res) => {
       const query = {};
       const cursor = itemsCollection.find(query);
@@ -81,7 +82,7 @@ async function run() {
 
     //userItems
 
-    app.get("/inventory/:email", async (req, res) => {
+    app.get("/inventory/userItems/:email", async (req, res) => {
       const email = req.params.email;
 
       const query = { user: email };
