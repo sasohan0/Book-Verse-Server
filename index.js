@@ -30,7 +30,7 @@ async function run() {
     await client.connect();
     const itemsCollection = client.db("book-verse").collection("items");
 
-    app.get("/inventory", async (req, res) => {
+    app.get("/tools", async (req, res) => {
       const query = {};
       const cursor = itemsCollection.find(query);
       const items = await cursor.toArray();
